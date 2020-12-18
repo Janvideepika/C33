@@ -13,7 +13,8 @@ var bg = "sprites/bg1.png";
 var score = 0;
 
 function preload() {
-    getBackgroundImg();
+    //getBackgroundImg();
+    backgroundImg = loadImage("sprites/bg2.jpg");
 }
 
 function setup(){
@@ -47,7 +48,7 @@ function setup(){
 }
 
 function draw(){
-    if(backgroundImg)
+    //if(backgroundImg)
         background(backgroundImg);
     
         noStroke();
@@ -95,6 +96,8 @@ function mouseReleased(){
 function keyPressed(){
     if(keyCode === 32){
        slingshot.attach(bird.body);
+       bird.trajectory=[]
+       Matter.Body.setPosition(bird.body,{x:200,y:50});
     }
 }
 
@@ -112,6 +115,6 @@ async function getBackgroundImg(){
         bg = "sprites/bg2.jpg";
     }
 
-    backgroundImg = loadImage(bg);
+        backgroundImg = loadImage("sprites/bg2.jpg");
     console.log(backgroundImg);
 }
